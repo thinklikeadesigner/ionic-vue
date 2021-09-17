@@ -1,0 +1,6 @@
+{
+  "appId": "com.thinklikeadesigner.ionicvue",
+  "appName": "ionic-vue",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

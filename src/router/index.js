@@ -16,6 +16,10 @@ const routes = [
   {
     path: "/memories/add",
     component: () => import("../pages/AddMemoryPage.vue")
+  },
+  {
+    path: "/todo",
+    component: () => import("../pages/Todo.vue")
   }
 ];
 
