@@ -14,12 +14,12 @@ const routes = [
     component: () => import("../pages/MemoryDetailsPage.vue")
   },
   {
-    path: "/memories/add",
-    component: () => import("../pages/AddMemoryPage.vue")
+    path: "/things/:id",
+    component: () => import("../pages/ThingDetailsPage.vue")
   },
   {
-    path: "/todo",
-    component: () => import("../pages/Todo.vue")
+    path: "/memories/add",
+    component: () => import("../pages/AddMemoryPage.vue")
   }
 ];
 

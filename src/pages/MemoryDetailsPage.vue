@@ -24,13 +24,5 @@ export default ({
             return this.$store.getters.memory(this.memoryId);
         }
     },
-    // commenting out watcher bc the ...Loading page flashes between renders
-    // watch: {
-    //     '$route'(currentRoute){
-    //         this.memoryId  = currentRoute.params.id;
-
-    //     }
-    // }
- 
 })
 </script>
