@@ -27,7 +27,8 @@ const store = createStore({
           description: "The fish was wonderful"
         }
       ],
-      things: []
+      things: [],
+      creature: {}
     };
   },
   mutations: {
@@ -43,6 +44,9 @@ const store = createStore({
     },
     SET_THINGS(state, things) {
       state.things = things;
+    },
+    SET_CREATURE(state, creature) {
+      state.creature = creature;
     }
   },
   actions: {
@@ -55,6 +59,17 @@ const store = createStore({
         .then(response => {
           console.log(response.data);
           commit("SET_THINGS", response.data);
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    },
+    getCreature({ commit }, id) {
+      axios
+        .get(`https://acnhapi.com/v1a/sea/${id}`)
+        .then(response => {
+          console.log(response.data);
+          commit("SET_CREATURE", response.data);
         })
         .catch(function(error) {
           console.error(error);
@@ -72,6 +87,9 @@ const store = createStore({
     },
     things(state) {
       return state.things;
+    },
+    creature(state) {
+      return state.creature;
     },
     thing(state) {
       return thingId => {

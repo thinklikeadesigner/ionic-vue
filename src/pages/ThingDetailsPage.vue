@@ -1,14 +1,14 @@
 
 <template>
-<base-layout :page-title="loadedThing ? loadedThing[file-name] : 'Loading...'" page-default-back-link="/memories">
-<h2 v-if="!loadedThing">Could not find a memory for the given id.</h2>
-<thing-overview v-else :title="loadedThing[file-name]" :image="loadedThing.image_uri" :description="loadedThing.speed"></thing-overview>
+<base-layout :page-title="creature ? creature['file-name'] : 'Loading...'" page-default-back-link="/memories">
+<h2 v-if="!creature">Could not find a memory for the given id.</h2>
+<thing-overview v-else :title="creature['file-name']" :image="creature.image_uri" :description="creature['catch-phrase']"></thing-overview>
     </base-layout>
 </template>
 
 <script>
 import {BaseLayout} from '@ionic/vue'
-import ThingOverview from '../components/things/ThingOverview.vue';
+import ThingOverview from '../components/things/ThingOverview.vue'
 export default ({
     components: {
         BaseLayout,
@@ -16,13 +16,17 @@ export default ({
     },
     data() {
         return {
-            thingId: this.$route.params.id,
+            creatureId: this.$route.params.id,
         }
     },
-    computed: {
-        loadedThing() {
-            return this.$store.getters.thing(this.thingId);
-        }
-    },
+  computed: {
+  creature() {
+    return this.$store.getters.creature
+    }
+},
+  mounted() {
+    this.$store.dispatch("getCreature", this.$route.params.id);
+  }
+ 
 })
 </script>
