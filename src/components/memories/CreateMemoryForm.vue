@@ -7,7 +7,8 @@
             </ion-item>
              <ion-item>
              <ion-thumbnail slot="start">
-                 <img :src="takenImageUrl" :alt="enteredTitle"/>
+                 <img v-if="takenImageUrl" :src="takenImageUrl" :alt="enteredTitle"/>
+                 <img v-else src="https://i.stack.imgur.com/y9DpT.jpg" alt="picture placeholder"/>
              </ion-thumbnail>
                  <ion-button fill="clear" type="button" @click="takePhoto">
                      <ion-icon slot="start" :icon="camera"></ion-icon>

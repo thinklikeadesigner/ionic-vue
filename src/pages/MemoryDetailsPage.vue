@@ -1,8 +1,9 @@
 
 <template>
-<base-layout :page-title="loadedMemory ? loadedMemory.title : 'Loading...'" page-default-back-link="/memories">
+<base-layout :page-title="loadedMemory ? loadedMemory.title : 'Loading...'" page-default-back-link="/tabs/tab1">
 <h2 v-if="!loadedMemory">Could not find a memory for the given id.</h2>
 <memory-overview v-else :title="loadedMemory.title" :image="loadedMemory.image" :description="loadedMemory.description"></memory-overview>
+
     </base-layout>
 </template>
 
@@ -12,7 +13,8 @@ import MemoryOverview from '../components/memories/MemoryOverview'
 export default ({
     components: {
         BaseLayout,
-        MemoryOverview
+        MemoryOverview,
+     
     },
     data() {
         return {
@@ -24,5 +26,6 @@ export default ({
             return this.$store.getters.memory(this.memoryId);
         }
     },
+
 })
 </script>

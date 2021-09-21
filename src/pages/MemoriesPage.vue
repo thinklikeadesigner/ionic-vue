@@ -1,46 +1,39 @@
-
 <template>
-<base-layout page-title="Sea Creatures">
-<template v-slot:actions-end>
-    <ion-button router-link="/memories/add">
-        <ion-icon slot="icon-only" :icon="add" ></ion-icon>
-    </ion-button>
-</template>
-
-<memories-list :memories="memories" ></memories-list>
-<things-list :things="things"></things-list>
-
-
-    </base-layout>
- 
+  <memories-list :memories="memories" ></memories-list>
 </template>
 
 <script>
-import {IonButton, IonIcon} from '@ionic/vue';
-import { add } from 'ionicons/icons';
+import { add, logOutOutline } from 'ionicons/icons';
 import MemoriesList from '../components/memories/MemoriesList.vue';
-import ThingsList from '../components/things/ThingsList.vue';
 export default ({ 
     components: {
    MemoriesList,
-   ThingsList,
-   IonButton, 
-   IonIcon
+  
   
     },
     data() {
-        return { add }
+        return { add, logOutOutline }
     },
 computed: {
     memories() {
             return this.$store.getters.memories;
 },
-  things() {
-    return this.$store.getters.things
-    }
+  creatures() {
+    return this.$store.getters.creatures
+    },
+      isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
+    },
+    methods: {
+      logout: function () {
+        this.$store.dispatch('logout')
+        .then(() => {
+          this.$router.push('/login')
+        })
+      }
+    
 },
   mounted() {
-    this.$store.dispatch("getThings");
+    this.$store.dispatch("getCreatures");
   }
  
 })

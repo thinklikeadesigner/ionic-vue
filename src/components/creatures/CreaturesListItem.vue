@@ -1,11 +1,11 @@
 
 <template>
-        <ion-item :router-link="`/things/${thing.id}`">
+        <ion-item :router-link="`/creatures/${creature.id}`">
         <ion-thumbnail slot="start">
-            <ion-img  :src="thing.image_uri" :alt="thing.file-name"></ion-img>
+            <ion-img  :src="creature.image_uri" :alt="creature.file-name"></ion-img>
         </ion-thumbnail>
         <ion-label>
-            {{ thing["file-name"] }}
+            {{ creature["file-name"] }}
             </ion-label>
         </ion-item>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import {IonItem, IonImg, IonThumbnail, IonLabel} from '@ionic/vue'
 export default ({
-    props: ["thing"],
+    props: ["creature"],
     components: {
           IonItem,
           IonImg,
