@@ -11,8 +11,8 @@
 </template> 
 
 <script >
-import {  logOutOutline, add } from 'ionicons/icons';
-import {  alertController, IonFab, IonFabButton } from '@ionic/vue';
+import { add } from 'ionicons/icons';
+import {  alertController, IonFab, IonFabButton, IonIcon } from '@ionic/vue';
 import MemoriesPage from '../pages/MemoriesPage.vue'
 
 
@@ -21,9 +21,9 @@ import BaseLayout from '../components/base/BaseLayout.vue';
 
 export default  {
   name: 'Tab2',
-  components: { BaseLayout, MemoriesPage, IonFab, IonFabButton},
+  components: { BaseLayout, MemoriesPage, IonFab, IonFabButton, IonIcon},
     data() {
-        return {  logOutOutline, add }
+        return {  add }
     },
   computed : {
       isLoggedIn : function(){ return this.$store.getters.isLoggedIn}

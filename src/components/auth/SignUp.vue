@@ -1,8 +1,16 @@
 <template>
-  <base-layout page-title="Ocean Scavenger Hunt">
-    <div class="flex">
+<ion-page>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Ocean Scavenger Hunt</ion-title>
+    </ion-toolbar>
+    </ion-header>
+<ion-content>
+    <ion-grid>
+  <ion-row >
+        <ion-col >
       <img class="round-image" src="https://images.unsplash.com/photo-1548032885-b5e38734688a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=907&q=80"/>
-   </div>
+   
     <form @submit.prevent="register">
     <ion-list>
         <ion-item>
@@ -27,17 +35,30 @@
     </ion-list>
 
       <div>
-          <ion-button type="submit" expand="block">Login</ion-button>
+          <ion-button color="success" type="submit" expand="block">Sign Up</ion-button>
       </div>
     </form>
-  </base-layout>
+    </ion-col>
+    </ion-row>
+      <ion-row>
+          <div text-center>
+        If you don't have an account, please <a routerLink='/register'>
+          register</a> first!
+          </div>
+      </ion-row>
+    </ion-grid>
+    </ion-content>    
+</ion-page>
+ 
+
+
 </template>
 
 <script>
-import {IonInput, BaseLayout, IonList, IonItem, IonLabel, IonButton, toastController}  from '@ionic/vue'
+import {IonInput, IonList, IonItem, IonLabel, IonButton, toastController, IonRow, IonGrid, IonCol}  from '@ionic/vue'
 
   export default {
-    components: {IonInput, BaseLayout,  IonList, IonItem, IonLabel, IonButton},
+    components: {IonInput, IonList, IonItem, IonLabel, IonButton, IonRow, IonGrid, IonCol},
     data(){
       return {
         name : "",
@@ -49,6 +70,7 @@ import {IonInput, BaseLayout, IonList, IonItem, IonLabel, IonButton, toastContro
     },
        methods: {
       register: function () {
+        console.log("register")
         let data = {
           name: this.name,
           email: this.email,
@@ -80,7 +102,9 @@ import {IonInput, BaseLayout, IonList, IonItem, IonLabel, IonButton, toastContro
 .flex {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  /* flex-direction: column; */
+align-items: center;
 }
+
 
 </style>

@@ -4,8 +4,12 @@ import CreatureModel from "../components/models/CreatureModel.js";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://morning-paper.students.nomoreparties.site"
-    : "http://localhost:3000";
+    ? process.env.VUE_APP_PROD_URL
+    : process.env.VUE_APP_LOCAL_URL;
+
+const apiUrl = process.env.VUE_APP_API_URL;
+
+console.log(apiUrl);
 
 const store = createStore({
   state() {
@@ -193,10 +197,8 @@ const store = createStore({
      */
     getCreatures({ commit }) {
       axios
-        .get("https://acnhapi.com/v1a/sea")
+        .get(process.env.VUE_APP_API_URL)
         .then(response => {
-          console.log("response.data");
-
           commit(
             "SET_CREATURES",
             response.data.map(creature => new CreatureModel(creature))

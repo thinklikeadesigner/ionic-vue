@@ -14,8 +14,6 @@ import BaseLayout from '../components/base/BaseLayout.vue';
 export default  {
   name: 'Tab2',
   components: { CreaturesPage,BaseLayout},
-    data() {
-    },
   computed : {
     /**
      * check if user is logged in

@@ -37,6 +37,7 @@ export default ({
  */
   mounted() {
     this.$store.dispatch("getCreature", this.$route.params.id);
+    
   }
  
 })

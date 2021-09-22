@@ -3,9 +3,7 @@ import MemoriesPage from "../pages/MemoriesPage.vue";
 import CreaturesPage from "../pages/CreaturesPage.vue";
 import Login from "../components/auth/Login.vue";
 import SignUp from "../components/auth/SignUp.vue";
-import Secure from "../components/auth/Secure.vue";
 import Tabs from "../views/Tabs.vue";
-import toast from "../views/toast.vue";
 import store from "../store";
 
 const routes = [
@@ -19,22 +17,9 @@ const routes = [
     component: Login
   },
   {
-    path: "/toast",
-    name: "toast",
-    component: toast
-  },
-  {
     path: "/signup",
     name: "signup",
     component: SignUp
-  },
-  {
-    path: "/secure",
-    name: "secure",
-    component: Secure,
-    meta: {
-      requiresAuth: true
-    }
   },
   {
     path: "/tabs/",

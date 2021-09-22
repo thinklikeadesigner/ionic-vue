@@ -1,5 +1,11 @@
 <template>
-   <base-layout page-title="Ocean Scavenger Hunt">
+ <ion-page>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Ocean Scavenger Hunt</ion-title>
+    </ion-toolbar>
+    </ion-header>
+<ion-content>
    <div class="flex">
       <img class="round-image" src="https://images.unsplash.com/photo-1548032885-b5e38734688a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=907&q=80"/>
    </div>
@@ -18,14 +24,15 @@
      <hr/>
      <ion-button type="submit" expand="block">Login</ion-button>
    </form>
- </base-layout>
+    </ion-content>    
+</ion-page>
 </template>
 <script>
-import {IonInput, BaseLayout, IonList, IonItem, IonLabel, IonButton, toastController}  from '@ionic/vue'
+import {IonInput, IonList, IonItem, IonLabel, IonButton, toastController}  from '@ionic/vue'
 
 
   export default {
-  components:{BaseLayout, IonInput, IonList, IonItem, IonLabel, IonButton},
+  components:{IonInput, IonList, IonItem, IonLabel, IonButton},
     data(){
       return {
         email : "",
