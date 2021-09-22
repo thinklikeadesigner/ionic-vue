@@ -1,5 +1,5 @@
 <template>
-<base-layout>
+<base-layout page-title="Ocean Scavenger Hunt">
     <ion-grid>
   <ion-row >
         <ion-col >
@@ -29,17 +29,15 @@
     </ion-list>
 
       <div>
-          <ion-button color="success" type="submit" expand="block">Sign Up</ion-button>
+          <ion-button  type="submit" expand="block">Sign Up</ion-button>
       </div>
     </form>
+          <div text-center>
+        If you already have an account, please <a class="toggle-form" href='/login'>
+          login</a>!
+          </div>
     </ion-col>
     </ion-row>
-      <ion-row>
-          <div text-center>
-        If you don't have an account, please <a routerLink='/register'>
-          register</a> first!
-          </div>
-      </ion-row>
     </ion-grid>
 </base-layout>
  
@@ -100,5 +98,8 @@ import BaseLayout from '../base/BaseLayout.vue'
 align-items: center;
 }
 
+.toggle-form {
+  text-decoration: none;
+}
 
 </style>

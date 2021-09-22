@@ -1,5 +1,8 @@
 <template>
-<base-layout>
+<base-layout page-title="Ocean Scavenger Hunt">
+    <ion-grid>
+  <ion-row >
+        <ion-col >
    <div class="flex">
       <img class="round-image" src="https://images.unsplash.com/photo-1548032885-b5e38734688a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=907&q=80"/>
    </div>
@@ -18,15 +21,23 @@
      <hr/>
      <ion-button type="submit" expand="block">Login</ion-button>
    </form>
+          <div text-center>
+        If you don't have an account, please <a  class="toggle-form" href='/signup'>
+          sign up</a> first!
+          </div>
+        </ion-col >
+  </ion-row >
+
+       </ion-grid>
 </base-layout>
 </template>
 <script>
-import {IonInput, IonList, IonItem, IonLabel, IonButton, toastController}  from '@ionic/vue'
+import {IonInput, IonList, IonItem, IonLabel, IonButton,   IonRow, IonGrid, IonCol}  from '@ionic/vue'
 import BaseLayout from '../base/BaseLayout.vue'
 
 
   export default {
-  components:{IonInput, IonList, IonItem, IonLabel, IonButton, BaseLayout},
+  components:{IonInput, IonList, IonItem, IonLabel, IonButton, BaseLayout,  IonRow, IonGrid, IonCol},
     data(){
       return {
         email : "",
@@ -40,19 +51,10 @@ import BaseLayout from '../base/BaseLayout.vue'
         this.$store.dispatch('login', { email, password })
        .then(() => {
          this.$router.push('/')
-              this.openToast()
     
          })
        .catch(err => console.log(err))
       },
-    async openToast() {
-      const toast = await toastController
-        .create({
-          message: 'Right On! You have signed up successfully.',
-          duration: 2000
-        })
-      return toast.present();
-    },
     }
   }
 </script>
@@ -69,4 +71,7 @@ import BaseLayout from '../base/BaseLayout.vue'
   padding: 20px;
 }
 
+.toggle-form {
+  text-decoration: none;
+}
 </style>
