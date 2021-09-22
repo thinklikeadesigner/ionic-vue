@@ -25,7 +25,7 @@ const routes = [
     path: "/tabs/",
     component: Tabs,
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     },
     children: [
       {
