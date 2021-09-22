@@ -1,6 +1,7 @@
 <template>
 <base-layout page-title="Account">
             <ExploreContainer name="Tab 3 page" >
+            <!-- I would add settings to implement dark mode here if I had more time --->
         <ion-button @click="presentLogoutConfirm" router-link="/login">Logout</ion-button>
       </ExploreContainer>
 </base-layout>

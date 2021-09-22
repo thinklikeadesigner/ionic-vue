@@ -1,8 +1,10 @@
 
 <template>
-<base-layout :page-title="creature ? creature['file-name'] : 'Loading...'" page-default-back-link="/tabs/tab2">
+<base-layout :page-title="creature ? creature.name : 'Loading...'" page-default-back-link="/tabs/tab2">
+<div class="flex"> 
 <h2 v-if="!creature">Could not find a memory for the given id.</h2>
-<creature-overview v-else :title="creature['file-name']" :image="creature.image_uri" :description="creature['catch-phrase']"></creature-overview>
+<creature-overview v-else :title="creature.name" :image="creature.image" :description="creature.catchPhrase"></creature-overview>
+</div>
     </base-layout>
 </template>
 
@@ -16,17 +18,31 @@ export default ({
     },
     data() {
         return {
+          /**
+           * gets the creature id from the route
+           */
             creatureId: this.$route.params.id,
         }
     },
   computed: {
+    /**
+     * returns the creature to display
+     */
   creature() {
     return this.$store.getters.creature
     }
 },
+/**
+ * dispatches an action to get a creature that matches the route params
+ */
   mounted() {
     this.$store.dispatch("getCreature", this.$route.params.id);
   }
  
 })
 </script>
+<style>
+.flex {
+  display: flex;
+}
+</style>

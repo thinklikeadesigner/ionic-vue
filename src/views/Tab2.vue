@@ -6,7 +6,6 @@
 
 <script >
 import CreaturesPage from '../pages/CreaturesPage.vue';
-import {  logOutOutline } from 'ionicons/icons';
 import {  alertController } from '@ionic/vue';
 
 import BaseLayout from '../components/base/BaseLayout.vue';
@@ -16,19 +15,26 @@ export default  {
   name: 'Tab2',
   components: { CreaturesPage,BaseLayout},
     data() {
-        return {  logOutOutline }
     },
   computed : {
+    /**
+     * check if user is logged in
+     */
       isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
     },
     methods: {
+      /**
+       * logs user out and sends user back to login screen
+       */
       logout: function () {
         this.$store.dispatch('logout')
         .then(() => {
           this.$router.push('/login')
         })
       },
-
+            /**
+             * async method that triggers an alert to confirm logout action
+             */
               async presentLogoutConfirm() {
       const alert = await alertController
         .create({

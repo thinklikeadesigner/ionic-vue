@@ -27,18 +27,30 @@ import "./theme/variables.css";
 import "./theme/core.css";
 import BaseLayout from "./components/base/BaseLayout.vue";
 
+/**
+ * sets authorization headers from local storage token
+ */
 const token = localStorage.getItem("token");
 if (token) {
   axios.defaults.headers.common["Authorization"] = token;
 }
 
+/**
+ * adds store and router to ionic vue app
+ */
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(store);
 
+/**
+ * creates default component
+ */
 app.component("base-layout", BaseLayout);
 
+/**
+ * mounts app
+ */
 router.isReady().then(() => {
   app.mount("#app");
 });
