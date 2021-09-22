@@ -1,11 +1,5 @@
 <template>
-<ion-page>
-<ion-header>
-    <ion-toolbar>
-        <ion-title>Ocean Scavenger Hunt</ion-title>
-    </ion-toolbar>
-    </ion-header>
-<ion-content>
+<base-layout>
     <ion-grid>
   <ion-row >
         <ion-col >
@@ -47,8 +41,7 @@
           </div>
       </ion-row>
     </ion-grid>
-    </ion-content>    
-</ion-page>
+</base-layout>
  
 
 
@@ -56,9 +49,10 @@
 
 <script>
 import {IonInput, IonList, IonItem, IonLabel, IonButton, toastController, IonRow, IonGrid, IonCol}  from '@ionic/vue'
+import BaseLayout from '../base/BaseLayout.vue'
 
   export default {
-    components: {IonInput, IonList, IonItem, IonLabel, IonButton, IonRow, IonGrid, IonCol},
+    components: {IonInput, IonList, BaseLayout, IonItem, IonLabel, IonButton, IonRow, IonGrid, IonCol},
     data(){
       return {
         name : "",

@@ -1,19 +1,19 @@
 
 <template>
-<base-layout :page-title="loadedMemory ? loadedMemory.title : 'Loading...'" page-default-back-link="/tabs/tab1">
+<arrow-base-layout :page-title="loadedMemory ? loadedMemory.title : 'Loading...'" page-default-back-link="/tabs/tab1">
 <div class="flex">
 <h2 v-if="!loadedMemory">Could not find a memory for the given id.</h2>
 <memory-overview v-else :title="loadedMemory.title" :image="loadedMemory.image" :description="loadedMemory.description"></memory-overview>
 </div>
-    </base-layout>
+    </arrow-base-layout>
 </template>
 
 <script>
-import {BaseLayout} from '@ionic/vue'
+import ArrowBaseLayout from '../components/base/ArrowBaseLayout.vue'
 import MemoryOverview from '../components/memories/MemoryOverview'
 export default ({
     components: {
-        BaseLayout,
+        ArrowBaseLayout,
         MemoryOverview,
      
     },

@@ -26,6 +26,7 @@ import "@ionic/vue/css/display.css";
 import "./theme/variables.css";
 import "./theme/core.css";
 import BaseLayout from "./components/base/BaseLayout.vue";
+import ArrowBaseLayout from "./components/base/ArrowBaseLayout.vue";
 
 /**
  * sets authorization headers from local storage token
@@ -47,6 +48,7 @@ const app = createApp(App)
  * creates default component
  */
 app.component("base-layout", BaseLayout);
+app.component("arrow-base-layout", ArrowBaseLayout);
 
 /**
  * mounts app

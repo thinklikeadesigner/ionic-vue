@@ -1,19 +1,19 @@
 
 <template>
-<base-layout :page-title="creature ? creature.name : 'Loading...'" page-default-back-link="/tabs/tab2">
+<arrow-base-layout :page-title="creature ? creature.name : 'Loading...'" page-default-back-link="/tabs/tab2">
 <div class="flex"> 
 <h2 v-if="!creature">Could not find a memory for the given id.</h2>
 <creature-overview v-else :title="creature.name" :image="creature.image" :description="creature.catchPhrase"></creature-overview>
 </div>
-    </base-layout>
+    </arrow-base-layout>
 </template>
 
 <script>
-import {BaseLayout} from '@ionic/vue'
+import ArrowBaseLayout from '../components/base/ArrowBaseLayout.vue'
 import CreatureOverview from '../components/creatures/CreatureOverview.vue'
 export default ({
     components: {
-        BaseLayout,
+        ArrowBaseLayout,
         CreatureOverview
     },
     data() {
