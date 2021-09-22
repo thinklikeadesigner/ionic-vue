@@ -4,7 +4,7 @@ import CreatureModel from "../components/models/CreatureModel.js";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? process.env.VUE_APP_PROD_URL
+    ? "https://boiling-forest-75924.herokuapp.com"
     : process.env.VUE_APP_LOCAL_URL;
 
 const apiUrl = process.env.VUE_APP_API_URL;
