@@ -4,7 +4,7 @@
 <div class="flex">
 <h2 v-if="!loadedMemory">Could not find a memory for the given id.</h2>
 <memory-overview v-else :title="loadedMemory.title" :image="loadedMemory.image" :description="loadedMemory.description"></memory-overview>
-<ion-button @click="deleteMem">delete</ion-button>
+<ion-button  color="danger" @click="presentLogoutConfirm"><ion-icon slot="end" :icon="trashOutline"></ion-icon></ion-button>
 </div>
     </arrow-base-layout>
 </template>
@@ -12,7 +12,8 @@
 <script>
 import ArrowBaseLayout from '../components/base/ArrowBaseLayout.vue'
 import MemoryOverview from '../components/memories/MemoryOverview'
-import {   IonButton } from '@ionic/vue'
+import { alertController,  IonButton } from '@ionic/vue'
+import {trashOutline} from 'ionicons/icons';
 export default ({
     components: {
         ArrowBaseLayout,
@@ -26,6 +27,7 @@ export default ({
              * gets id to find specific memory from route params
              */
             memoryId: this.$route.params.id,
+            trashOutline
         }
     },
     computed: {
@@ -44,6 +46,33 @@ export default ({
            this.$store.dispatch('deleteMemory', this.memoryId);
              this.$router.replace('/tabs/tab1');
       },
+             async presentLogoutConfirm() {
+      const alert = await alertController
+        .create({
+          cssClass: 'my-custom-class',
+          header: 'Delete',
+          message: 'Are you sure you want to delete this?',
+          buttons: [
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              cssClass: 'secondary',
+              handler: () => {
+                  
+                console.log('Confirm Cancel')
+              },
+            },
+            {
+              text: 'Yes, I\'m sure',
+              handler: () => {
+                console.log('Confirm Okay')
+                 this.deleteMem()
+              },
+            },
+          ],
+        });
+      return alert.present();
+    },
     }
 
 })
