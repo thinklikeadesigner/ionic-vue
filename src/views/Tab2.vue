@@ -1,7 +1,7 @@
 <template>
 <base-layout page-title="Your Collection">
          <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button @click="openModal">
+      <ion-fab-button router-link="/memories/add">
         <ion-icon :icon="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
@@ -12,9 +12,8 @@
 
 <script >
 import { add } from 'ionicons/icons';
-import {  alertController, IonFab, IonFabButton, IonIcon, modalController } from '@ionic/vue';
+import {  alertController, IonFab, IonFabButton, IonIcon } from '@ionic/vue';
 import MemoriesPage from '../pages/MemoriesPage.vue'
-import Modal from '../components/Modal.vue'
 
 
 import BaseLayout from '../components/base/BaseLayout.vue';
@@ -61,22 +60,6 @@ export default  {
           ],
         });
       return alert.present();
-    },
-    async openModal() {
-      const modal = await modalController
-        .create({
-          component: Modal,
-          cssClass: 'my-custom-class',
-          componentProps: {
-            data: {
-              content: 'New Content',
-            },
-            propsData: {
-              title: 'New title',
-            },
-          },
-        })
-      return modal.present();
     },
     },
 }

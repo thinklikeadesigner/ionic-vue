@@ -5,8 +5,6 @@
 <script>
 import { add, logOutOutline } from 'ionicons/icons';
 import MemoriesList from '../components/memories/MemoriesList.vue';
-
-
 export default ({ 
     components: {
    MemoriesList,
@@ -31,8 +29,7 @@ computed: {
         .then(() => {
           this.$router.push('/login')
         })
-      },
-      
+      }
     
 },
   mounted() {
