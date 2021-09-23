@@ -15,7 +15,7 @@ export default {
           // i would do validation and showing an error message if I had more time
           saveMemory(memoryData) {
             this.$store.dispatch('addMemory', memoryData);
-            this.$router.replace('/tabs/tab1');
+            this.$router.replace('/tabs/tab2');
           }
       }
     

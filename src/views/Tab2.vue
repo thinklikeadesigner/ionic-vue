@@ -1,39 +1,41 @@
 <template>
-<base-layout page-title="Scavenger Hunt List">
-<creatures-page></creatures-page>
+<base-layout page-title="Your Collection">
+         <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button router-link="/memories/add">
+        <ion-icon :icon="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+      <memories-page></memories-page>
+      
 </base-layout>
-</template>
+</template> 
 
 <script >
-import CreaturesPage from '../pages/CreaturesPage.vue';
-import {  alertController } from '@ionic/vue';
+import { add } from 'ionicons/icons';
+import {  alertController, IonFab, IonFabButton, IonIcon } from '@ionic/vue';
+import MemoriesPage from '../pages/MemoriesPage.vue'
+
 
 import BaseLayout from '../components/base/BaseLayout.vue';
 
 
 export default  {
   name: 'Tab2',
-  components: { CreaturesPage,BaseLayout},
+  components: { BaseLayout, MemoriesPage, IonFab, IonFabButton, IonIcon},
+    data() {
+        return {  add }
+    },
   computed : {
-    /**
-     * check if user is logged in
-     */
       isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
     },
     methods: {
-      /**
-       * logs user out and sends user back to login screen
-       */
       logout: function () {
         this.$store.dispatch('logout')
         .then(() => {
           this.$router.push('/login')
         })
       },
-            /**
-             * async method that triggers an alert to confirm logout action
-             */
-              async presentLogoutConfirm() {
+          async presentLogoutConfirm() {
       const alert = await alertController
         .create({
           cssClass: 'my-custom-class',
@@ -59,6 +61,6 @@ export default  {
         });
       return alert.present();
     },
-        },
+    },
 }
 </script>
