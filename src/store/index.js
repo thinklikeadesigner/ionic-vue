@@ -1,11 +1,16 @@
 import { createStore } from "vuex";
 import axios from "axios";
+import VuexPersistence from "vuex-persist";
 import CreatureModel from "../components/models/CreatureModel.js";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
     ? process.env.VUE_APP_PROD_URL
     : process.env.VUE_APP_PROD_URL;
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage
+});
 
 const apiUrl = process.env.VUE_APP_API_URL;
 
@@ -274,7 +279,8 @@ const store = createStore({
     creature(state) {
       return state.creature;
     }
-  }
+  },
+  plugins: [vuexLocal.plugin]
 });
 
 export default store;

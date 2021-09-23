@@ -85,4 +85,10 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+const waitForStorageToBeReady = async (to, from, next) => {
+  await store.restored;
+  next();
+};
+router.beforeEach(waitForStorageToBeReady);
+
 export default router;
