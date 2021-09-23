@@ -1,14 +1,17 @@
 <template>
-    <arrow-base-layout page-title="Add Item" page-default-back-link="/tabs/tab1">
+<base-layout page-title="Add Item">
 <create-memory-form @save-memory="saveMemory"></create-memory-form>
-    </arrow-base-layout>
+</base-layout>
+
 </template>
 
 <script>
 import CreateMemoryForm from '../components/memories/CreateMemoryForm.vue'
+
 export default {
   components: { 
-      CreateMemoryForm
+      CreateMemoryForm,
+
       },
       methods: {
           // this page is where i would handle the data fetching and form submission
