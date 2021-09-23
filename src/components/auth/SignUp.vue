@@ -32,7 +32,7 @@
           <ion-button  type="submit" expand="block">Sign Up</ion-button>
       </div>
     </form>
-          <div text-center>
+          <div  class="toggle-form-text"  text-center >
         If you already have an account, please <a class="toggle-form" href='/login'>
           login</a>!
           </div>
@@ -104,8 +104,12 @@ import BaseLayout from '../base/BaseLayout.vue'
 align-items: center;
 }
 
-.toggle-form {
+.toggle-form-link  {
   text-decoration: none;
+}
+
+.toggle-form-text {
+  margin-top: 40px;
 }
 
 </style>

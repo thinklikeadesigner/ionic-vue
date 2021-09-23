@@ -2,7 +2,7 @@
 <base-layout page-title="Ocean Scavenger Hunt">
     <ion-grid>
   <ion-row >
-        <ion-col >
+ <ion-col  col-12 col-xl-2 col-lg-3 col-md-4>
    <div class="flex">
       <img class="round-image" src="https://images.unsplash.com/photo-1548032885-b5e38734688a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=907&q=80"/>
    </div>
@@ -21,8 +21,8 @@
      <hr/>
      <ion-button type="submit" expand="block">Login</ion-button>
    </form>
-          <div text-center>
-        If you don't have an account, please <a  class="toggle-form" href='/signup'>
+          <div class="toggle-form-text" text-center>
+        If you don't have an account, please <a  class="toggle-form-link" href='/signup'>
           sign up</a> first!
           </div>
         </ion-col >
@@ -73,7 +73,12 @@ import BaseLayout from '../base/BaseLayout.vue'
   padding: 20px;
 }
 
-.toggle-form {
+.toggle-form-link {
   text-decoration: none;
+}
+
+.toggle-form-text {
+  margin-top: 40px;
+
 }
 </style>
