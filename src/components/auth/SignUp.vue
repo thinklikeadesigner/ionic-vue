@@ -82,7 +82,7 @@ import BaseLayout from '../base/BaseLayout.vue'
           async openToast() {
       const toast = await toastController
         .create({
-          message: 'Your settings have been saved.',
+          message: 'Right on! Your account has been created.',
           duration: 2000
         })
       return toast.present();
