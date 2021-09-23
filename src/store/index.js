@@ -2,10 +2,10 @@ import { createStore } from "vuex";
 import axios from "axios";
 import CreatureModel from "../components/models/CreatureModel.js";
 
-// const baseUrl =
-//   process.env.NODE_ENV === "production"
-//     ? "https://boiling-forest-75924.herokuapp.com"
-//     : process.env.VUE_APP_LOCAL_URL;
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.VUE_APP_PROD_URL
+    : process.env.VUE_APP_PROD_URL;
 
 const apiUrl = process.env.VUE_APP_API_URL;
 
@@ -121,7 +121,7 @@ const store = createStore({
       return new Promise((resolve, reject) => {
         commit("auth_request");
         axios({
-          url: "https://boiling-forest-75924.herokuapp.com" + "/signin",
+          url: baseUrl + "/signin",
           data: user,
           method: "POST"
         })
@@ -150,7 +150,7 @@ const store = createStore({
       return new Promise((resolve, reject) => {
         commit("auth_request");
         axios({
-          url: "https://boiling-forest-75924.herokuapp.com" + "/signup",
+          url: baseUrl + "/signup",
           data: user,
           method: "POST"
         })
@@ -217,7 +217,7 @@ const store = createStore({
      */
     getCreature({ commit }, id) {
       axios
-        .get(`https://acnhapi.com/v1a/sea/${id}`)
+        .get(`${process.env.VUE_APP_API_URL}/${id}`)
         .then(response => {
           // data filtered through model class for creature
           commit("SET_CREATURE", new CreatureModel(response.data));
