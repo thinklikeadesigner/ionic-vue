@@ -27,6 +27,7 @@ import "./theme/variables.css";
 import "./theme/core.css";
 import BaseLayout from "./components/base/BaseLayout.vue";
 import ArrowBaseLayout from "./components/base/ArrowBaseLayout.vue";
+import './registerServiceWorker'
 
 /**
  * sets authorization headers from local storage token
