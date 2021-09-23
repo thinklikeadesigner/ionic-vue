@@ -70,7 +70,13 @@ import BaseLayout from '../base/BaseLayout.vue'
           // is_admin: this.is_admin
         }
         this.$store.dispatch('register', data)
-       .then(() => this.$router.push('/'))
+       .then(() => {
+         data.email = '';
+         data.password = ''
+         data.name = '';
+         this.$router.push('/');
+         this.openToast();
+       })
        .catch(err => console.log(err))
       },
           async openToast() {

@@ -50,6 +50,8 @@ import BaseLayout from '../base/BaseLayout.vue'
         let password = this.password
         this.$store.dispatch('login', { email, password })
        .then(() => {
+         email = '';
+         password = '';
          this.$router.push('/')
     
          })
