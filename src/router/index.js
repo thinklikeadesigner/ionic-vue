@@ -48,23 +48,38 @@ const routes = [
   },
   {
     path: "/memories",
-    component: MemoriesPage
+    component: MemoriesPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/creatures",
-    component: CreaturesPage
+    component: CreaturesPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/memories/:id",
-    component: () => import("../pages/MemoryDetailsPage.vue")
+    component: () => import("../pages/MemoryDetailsPage.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/creatures/:id",
-    component: () => import("../pages/CreatureDetailsPage.vue")
+    component: () => import("../pages/CreatureDetailsPage.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/memories/add",
-    component: () => import("../pages/AddMemoryPage.vue")
+    component: () => import("../pages/AddMemoryPage.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 

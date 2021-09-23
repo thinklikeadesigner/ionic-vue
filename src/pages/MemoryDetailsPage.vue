@@ -4,6 +4,7 @@
 <div class="flex">
 <h2 v-if="!loadedMemory">Could not find a memory for the given id.</h2>
 <memory-overview v-else :title="loadedMemory.title" :image="loadedMemory.image" :description="loadedMemory.description"></memory-overview>
+<ion-button @click="deleteMem">delete</ion-button>
 </div>
     </arrow-base-layout>
 </template>
@@ -11,10 +12,12 @@
 <script>
 import ArrowBaseLayout from '../components/base/ArrowBaseLayout.vue'
 import MemoryOverview from '../components/memories/MemoryOverview'
+import {   IonButton } from '@ionic/vue'
 export default ({
     components: {
         ArrowBaseLayout,
         MemoryOverview,
+        IonButton 
      
     },
     data() {
@@ -31,8 +34,17 @@ export default ({
          */
         loadedMemory() {
             return this.$store.getters.memory(this.memoryId);
-        }
+        },
+
     },
+    methods: {
+                         deleteMem() {
+          // I could do form validation here if I had more time
+      console.log("delete here", this.memoryId)
+           this.$store.dispatch('deleteMemory', this.memoryId);
+             this.$router.replace('/tabs/tab1');
+      },
+    }
 
 })
 </script>

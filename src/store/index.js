@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 import axios from "axios";
 import VuexPersistence from "vuex-persist";
 import CreatureModel from "../components/models/CreatureModel.js";
+import MemoryModel from "../components/models/MemoryModel.js";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
@@ -98,6 +99,9 @@ const store = createStore({
 
       state.memories.unshift(newMemory);
     },
+    deleteMemory(state, memoryId) {
+      state.memories = state.memories.filter(memory => memory.id !== memoryId);
+    },
     /**
      * sets the creatures in the store from the getCreatures action
      * @param {*} state
@@ -193,7 +197,10 @@ const store = createStore({
      * @param {*} memoryData
      */
     addMemory(context, memoryData) {
-      context.commit("addMemory", memoryData);
+      context.commit("addMemory", new MemoryModel(memoryData));
+    },
+    deleteMemory(context, memoryId) {
+      context.commit("deleteMemory", memoryId);
     },
     /**
      * gets the creatures from the api service, and maps each response to the CreatureModel
@@ -260,7 +267,8 @@ const store = createStore({
      */
     memory(state) {
       return memoryId => {
-        return state.memories.find(memory => memory.id === memoryId);
+        let foundMemory = state.memories.find(memory => memory.id === memoryId);
+        return new MemoryModel(foundMemory);
       };
     },
     /**
