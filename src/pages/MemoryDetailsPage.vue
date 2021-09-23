@@ -4,7 +4,7 @@
 <div class="flex">
 <h2 v-if="!loadedMemory">Could not find a memory for the given id.</h2>
 <memory-overview v-else :title="loadedMemory.title" :image="loadedMemory.image" :description="loadedMemory.description"></memory-overview>
-<ion-button  color="danger" @click="presentLogoutConfirm"><ion-icon slot="end" :icon="trashOutline"></ion-icon></ion-button>
+<ion-button  color="danger" @click="presentLogoutConfirm">delete</ion-button>
 </div>
     </arrow-base-layout>
 </template>
@@ -12,13 +12,13 @@
 <script>
 import ArrowBaseLayout from '../components/base/ArrowBaseLayout.vue'
 import MemoryOverview from '../components/memories/MemoryOverview'
-import { alertController,  IonButton } from '@ionic/vue'
-import {trashOutline} from 'ionicons/icons';
+import { alertController,  IonButton, } from '@ionic/vue'
+
 export default ({
     components: {
         ArrowBaseLayout,
         MemoryOverview,
-        IonButton 
+        IonButton,
      
     },
     data() {
@@ -27,7 +27,7 @@ export default ({
              * gets id to find specific memory from route params
              */
             memoryId: this.$route.params.id,
-            trashOutline
+  
         }
     },
     computed: {
@@ -43,8 +43,8 @@ export default ({
                          deleteMem() {
           // I could do form validation here if I had more time
       console.log("delete here", this.memoryId)
-           this.$store.dispatch('deleteMemory', this.memoryId);
-             this.$router.replace('/tabs/tab1');
+     
+           
       },
              async presentLogoutConfirm() {
       const alert = await alertController
@@ -66,7 +66,9 @@ export default ({
               text: 'Yes, I\'m sure',
               handler: () => {
                 console.log('Confirm Okay')
-                 this.deleteMem()
+             
+      this.$store.dispatch('deleteMemory', this.memoryId);
+                   this.$router.replace('/tabs/tab1');
               },
             },
           ],

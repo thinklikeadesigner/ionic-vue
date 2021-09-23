@@ -2,7 +2,6 @@ import { createStore } from "vuex";
 import axios from "axios";
 import VuexPersistence from "vuex-persist";
 import CreatureModel from "../components/models/CreatureModel.js";
-import MemoryModel from "../components/models/MemoryModel.js";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
@@ -197,7 +196,7 @@ const store = createStore({
      * @param {*} memoryData
      */
     addMemory(context, memoryData) {
-      context.commit("addMemory", new MemoryModel(memoryData));
+      context.commit("addMemory", memoryData);
     },
     deleteMemory(context, memoryId) {
       context.commit("deleteMemory", memoryId);
@@ -268,7 +267,7 @@ const store = createStore({
     memory(state) {
       return memoryId => {
         let foundMemory = state.memories.find(memory => memory.id === memoryId);
-        return new MemoryModel(foundMemory);
+        return foundMemory;
       };
     },
     /**
