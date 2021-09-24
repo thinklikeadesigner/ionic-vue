@@ -115,7 +115,7 @@ Used a model class to process some of the API data before display
 -   ![log in save user preview](https://media.giphy.com/media/9RnAVaeR3fjR3cpVcY/giphy.gif?cid=790b7611a9ce0ed6f24f987fb74a1a25d230cc9467c8a37c&rid=giphy.gif&ct=g)
 
 I used local storage to save the token, and I protected the routes from unauthorized access.
-**As a side note, I wanted the login to be functional, so I created a backend using mongodb and express and hosted that [on heroku](https://boiling-forest-75924.herokuapp.com) using MongoDB Atlas.**
+**As a side note, I wanted the login to be functional, so I created a backend using mongodb and express and hosted that [on heroku](https://boiling-forest-75924.herokuapp.com) using MongoDB Atlas.** The repo for the API is [here](https://github.com/thinklikeadesigner/login-service)
 
 ## As a bonus, I added native camera functionality. If you are on your computer, you will be given the option to choose a file from your local file system
 
