@@ -15,7 +15,10 @@ export default class CreatureModel {
   }
 
   get image() {
-    //  return this.base64ToImage(this.data.image)
+    // this is where I would convert the base64 back to a uri,
+    // the problem I'm running into is the uri is too long so the request fails
+    // If I had more time I would use this class to encode and decode the image so I could save it in local storage
+    // another solution would be using an amazon S3 bucket
 
     return this.data.image;
   }
@@ -25,6 +28,7 @@ export default class CreatureModel {
     return this.data.title;
   }
   /**
+   *
    *
    * @param {*} b64 the base64 string from the pwa camera
    * @returns a data uri
