@@ -28,7 +28,7 @@ export default class CreatureModel {
     return this.data.title;
   }
   /**
-   *
+   * to convert b64 image string back to uri
    *
    * @param {*} b64 the base64 string from the pwa camera
    * @returns a data uri
