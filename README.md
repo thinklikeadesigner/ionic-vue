@@ -125,5 +125,7 @@ I used local storage to save the token, and I protected the routes from unauthor
 
 ![camera pwa preview](https://media.giphy.com/media/bZQF7AtYCrByHewq4Q/giphy.gif?cid=790b7611b8f5fc481d69de0fadddd324b95a316f26a229f3&rid=giphy.gif&ct=g)
 
+Note: I'm aware that there's an issue loading the images. This is due to me not knowing exactly how to encode and decode image blobs so that you can save them in local storage. If I had more time, I would either figure it out, or opt for AWS S3 bucket
+
 
 
