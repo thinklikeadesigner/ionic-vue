@@ -6,7 +6,7 @@ import CreatureModel from "../components/models/CreatureModel.js";
 const baseUrl =
   process.env.NODE_ENV === "production"
     ? process.env.VUE_APP_PROD_URL
-    : process.env.VUE_APP_PROD_URL;
+    : process.env.VUE_APP_LOCAL_URL;
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage
